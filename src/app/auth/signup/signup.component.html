@@ -1,14 +1,49 @@
 <section>
-    <form>
+    <form
+        fxLayout="column"
+        fxLayoutGap="1rem"
+        fxLayoutAlign="center center"
+        
+    >
         <!-- * Email -->
         <mat-form-field>
-
+            <mat-icon>person</mat-icon>
+            <input 
+            type="email"
+            matInput
+            name="email" 
+            placeholder="Enter your email"
+            required
+            ngModel
+            #emailInput="ngModel"
+            >
+            <mat-error *ngIf="emailInput.hasError('required')">Field should not be empty</mat-error>
         </mat-form-field>
 
         <!-- * Password -->
         <mat-form-field>
-
+            <mat-icon>key</mat-icon>
+            <input
+                matInput
+                type="password"
+                name="password"
+                minlength="8"
+                required
+                placeholder="Enter your password"
+                ngModel
+                #passInput="ngModel"
+                >
+            <mat-hint align="end"> {{ passInput.value?.length }} / 8</mat-hint>
         </mat-form-field>
+
+        <!-- * DatePicker -->
+        <mat-form-field>
+            <input matInput placeholder="Your date of birth"
+            [matDatepicker]="picker" ngModel name="birthDate" required>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        
 
         
 
