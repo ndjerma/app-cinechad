@@ -1,0 +1,23 @@
+mat-sidenav-container, mat-sidenav, mat-sidenav-content{
+    height: 100%;
+}
+mat-sidenav{
+    width: 15rem;
+}
+mat-toolbar div img{
+    max-height: 4rem;
+    width: auto;
+    padding: 1rem 0;
+    border-radius: 50%;
+}
+mat-toolbar{
+    height: 5rem;
+    background-color: aqua;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+a:hover {
+    color: blue;
+}
