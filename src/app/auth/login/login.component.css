@@ -23,8 +23,8 @@ mat-form-field {
 
 mat-icon[matPrefix] {
     margin-right: 8px;
-    color: #666;
-    font-size: 1.6em; /* Povećaj ikonice */
+    color: #FD9D7A;
+    font-size: 1.6em; 
 }
 
 
@@ -33,24 +33,29 @@ mat-checkbox {
     display: block;
 }
 
-button[mat-stroked-button] {
+button[mat-raised-button] {
     width: 100%;
     padding: 12px;
     font-weight: 500;
-    background: var(--primary-500);
+    background: var(--primary-200);
     color: white !important;
     border: none;
     transition: all 0.3s ease;
 }
 
-button[mat-stroked-button]:hover {
+button[mat-raised-button]:hover {
     background: var(--primary-700);
     transform: translateY(-1px);
 }
 
+button[mat-raised-button]:disabled {
+    background: #eeeeee;
+    color: #999 !important;
+}
+
 a {
+    color: var(--primary-700);
     text-decoration: none;
-    color: black;
     font-size: 0.9rem;
     margin-top: 1rem;
     display: block;
@@ -58,6 +63,7 @@ a {
 }
 
 a:hover {
+    color: var(--primary-200);
     text-decoration: underline;
 }
 
@@ -84,4 +90,23 @@ mat-hint {
     section {
     padding: 1rem;
     }
+}
+
+
+/* =========== IKONICE =========== */
+
+mat-icon[matPrefix] {
+    margin-right: 8px;
+    color: #FD9D7A;
+    transform: translateY(-2px);
+}
+
+mat-datepicker-toggle[matIconSuffix] {
+    color: #FD9D7A !important;
+}
+
+.mat-form-field-prefix,
+.mat-form-field-suffix {
+    display: flex;
+    align-items: center;
 }

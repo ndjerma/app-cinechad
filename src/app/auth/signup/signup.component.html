@@ -3,18 +3,19 @@
         fxLayout="column"
         fxLayoutGap="1rem"
         fxLayoutAlign="center center"
-        
+        #n="ngForm"
+        (ngSubmit)="onSubmit(n)"
     >
         <!-- * Email -->
         <mat-form-field>
-            <mat-icon>person</mat-icon>
+            <mat-icon matPrefix>person</mat-icon>
             <input 
-            type="email"
+            ngModel
             matInput
+            type="email"
             name="email" 
             placeholder="Enter your email"
             required
-            ngModel
             #emailInput="ngModel"
             >
             <mat-error *ngIf="emailInput.hasError('required')">Field should not be empty</mat-error>
@@ -22,15 +23,15 @@
 
         <!-- * Password -->
         <mat-form-field>
-            <mat-icon>key</mat-icon>
+            <mat-icon matPrefix>key</mat-icon>
             <input
                 matInput
+                ngModel
                 type="password"
                 name="password"
+                placeholder="Enter your password"
                 minlength="8"
                 required
-                placeholder="Enter your password"
-                ngModel
                 #passInput="ngModel"
                 >
             <mat-hint align="end"> {{ passInput.value?.length }} / 8</mat-hint>
@@ -38,11 +39,25 @@
 
         <!-- * DatePicker -->
         <mat-form-field>
+            <mat-icon matPrefix>calendar_today</mat-icon>
             <input matInput placeholder="Your date of birth"
             [matDatepicker]="picker" ngModel name="birthDate" required>
             <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
+
+        <!-- * Checkbox -->
+        <mat-checkbox ngModel name="acceptance" required>
+            I accept the terms and conditions of use.
+        </mat-checkbox>
+
+        <!-- * Submit button -->
+        <button type="submit" mat-stroked-button [disabled]="n.invalid">Submit</button>
+
+        <!-- * Error message field -->
+        <mat-label *ngIf="errorExists"> {{ errorText }}</mat-label>
+        <a routerLink="/login">Click here to login. 😄</a>
+
         
 
         
