@@ -1,5 +1,5 @@
 import { Injectable, ResourceStatus } from "@angular/core";
-import { User } from "../models/user.constants";
+import { User } from "../interfaces/user.interface";
 import { max } from "rxjs";
 
 @Injectable()

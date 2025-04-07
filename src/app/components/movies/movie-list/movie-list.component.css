@@ -1,0 +1,20 @@
+.movie-list-container {
+    display: flex;
+    overflow-x: auto;
+    padding: 20px 0;
+    gap: 25px;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+}
+.movie-list-container::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}
+app-movie-card {
+    flex: 0 0 300px; /* Фиксна ширина */
+    scroll-snap-align: start;
+}
+.scroll-indicator {
+    flex: 0 0 60px;
+    background: linear-gradient(to right, transparent, #fff3f0);
+    pointer-events: none;
+}

@@ -6,11 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MatModule } from './material-components.module';  //! custom fajl za importovanje material componenti
 import { FlexLayoutModule } from '@ngbracket/ngx-layout';
-import { LoginComponent } from './auth/login/login.component';
-import { SignupComponent } from './auth/signup/signup.component';
-import { WelcomeComponent } from './welcome/welcome.component';
+import { LoginComponent } from './components/auth/login/login.component';
+import { SignupComponent } from './components/auth/signup/signup.component';
+import { WelcomeComponent } from './components/welcome/welcome.component';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from './services/auth.service';
+import { MovieListComponent } from './components/movies/movie-list/movie-list.component';
+import { MovieCardComponent } from './components/movies/movie-card/movie-card.component';
+import { MovieService } from './services/movie.service';
 
 
 @NgModule({
@@ -19,6 +22,8 @@ import { AuthService } from './services/auth.service';
     LoginComponent,
     SignupComponent,
     WelcomeComponent,
+    MovieListComponent,
+    MovieCardComponent,
 
   ],
   imports: [
@@ -28,7 +33,7 @@ import { AuthService } from './services/auth.service';
     FlexLayoutModule,
     FormsModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, MovieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

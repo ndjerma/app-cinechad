@@ -1,4 +1,4 @@
-import { Genre } from "../models/genres.constants";
+import { Genre } from "../constants/genres.constants";
 
 export interface User {
     id: number;

@@ -5,6 +5,7 @@ export type Genre =
 'Thriller'| 
 'Sci-Fi'| 
 'Romance'| 
+'History'| 
 'Comedy';
 
 export const GENRES: Genre[] = [
@@ -14,5 +15,6 @@ export const GENRES: Genre[] = [
     'Thriller',
     'Sci-Fi' ,
     'Romance',
+    'History',
     'Comedy'
 ];
