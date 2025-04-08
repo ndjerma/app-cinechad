@@ -12,7 +12,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatSelectModule } from '@angular/material/select';
-
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -29,6 +29,7 @@ import { MatSelectModule } from '@angular/material/select';
         MatInputModule,
         MatCardModule,
         MatSelectModule,
+        MatDialogModule, 
 
     ],
     exports: [
@@ -44,6 +45,7 @@ import { MatSelectModule } from '@angular/material/select';
         MatInputModule,
         MatCardModule,
         MatSelectModule,
+        MatDialogModule, 
 
     ]
 })

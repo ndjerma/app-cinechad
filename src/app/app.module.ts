@@ -14,6 +14,7 @@ import { AuthService } from './services/auth.service';
 import { MovieListComponent } from './components/movies/movie-list/movie-list.component';
 import { MovieCardComponent } from './components/movies/movie-card/movie-card.component';
 import { MovieService } from './services/movie.service';
+import { ProfileComponent } from './components/auth/profile/profile.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { MovieService } from './services/movie.service';
     WelcomeComponent,
     MovieListComponent,
     MovieCardComponent,
+    ProfileComponent,
 
   ],
   imports: [
