@@ -8,7 +8,7 @@ export interface Movie {
     imageUrl: string;
     description: string;
     // genre: Genre[];         // ? mora niz jer jedan film moze da ima vise zanrova
-    genre: ('Action' | 'Drama' | 'Horror' | 'Thriller' | 'Sci-Fi' | 'Romance' | 'History' | 'Comedy')[];
+    genre: ('Action' | 'Drama' | 'Horror' | 'Thriller' | 'Sci-Fi' | 'Romance' | 'History' | 'Comedy' | 'Romance' | 'Crime' | 'Mystery' | 'Adventure' | 'Fantasy' | 'Biography' | 'Music' | 'Western')[];
     duration: number;
     director: string;
     cast: string[];         // ? glumci kao niz takodje

@@ -24,7 +24,7 @@ export class MovieCardComponent {
   ticketCount: number = 1;
 
   getFormattedDate(date: Date){
-    return new Date(date).toLocaleDateString('sr-Latin', {
+    return new Date(date).toLocaleDateString('en-US', {
       day: 'numeric', 
       month: 'short',
       hour: '2-digit',

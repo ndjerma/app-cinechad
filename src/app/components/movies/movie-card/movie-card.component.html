@@ -4,13 +4,7 @@
     <div 
     mat-card-image 
     class="movie-poster"
-    [style.background-image]="'url(' + movie.imageUrl + ')'"
-    >
-        <div class="overlay-info" fxLayout="column" fxLayoutAlign="center center">
-            <span class="start-time">{{ getFormattedDate(movie.projections[0].dateTime) }}</span>        <!-- {{ getFormattedDate(movie.projections[0].dateTime) }} -->
-            <span class="price">{{ movie.price }} RSD</span>
-        </div>
-    </div>
+    [style.background-image]="'url(' + movie.imageUrl + ')'"></div>
     
     <!-- * zaglavlje sa naslovom -->
     <mat-card-header fxFlex="nogrow">
@@ -20,7 +14,13 @@
     
     
     <!-- * kontrole za rezervaciju -->
-    <mat-card-content fxFlex="grow">
+    <mat-card-content>
+
+        <div class="overlay-info" fxLayout="column" fxLayoutAlign="center center">
+            <span class="start-time">{{ getFormattedDate(movie.projections[0].dateTime) }}</span>        <!-- {{ getFormattedDate(movie.projections[0].dateTime) }} -->
+            <span class="price">{{ movie.price }} RSD</span>
+        </div>
+
         <div fxLayout="row" fxLayoutAlign="space-between center" class="ticket-controls">
             <mat-form-field appearance="outline">
                 <mat-label>Ticket number</mat-label>
