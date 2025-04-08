@@ -37,3 +37,61 @@
     grid-template-columns: repeat(4, 1fr);
     }
 }
+/* * ========================== * */
+
+/* movie-list.component.css */
+.filters {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Две једнаке колоне */
+    gap: 30px;
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* Стилови за оба form field-а */
+mat-form-field {
+    width: 100%;
+    background-color: var(--primary-200); /* #FEBDA0 */
+    border-radius: 8px;
+    padding: 8px;
+}
+
+/* Стилови за инпут и селект */
+.mat-mdc-text-field-wrapper,
+.mat-mdc-select-panel {
+    background-color: transparent !important;
+}
+
+.mat-mdc-form-field-infix {
+    background: var(--primary-100); /* #ffe0d6 */
+    padding: 12px !important;
+    border-radius: 4px;
+}
+
+/* Текст и границе */
+.mat-mdc-input-element,
+.mat-mdc-select-value-text {
+    color: var(--text-on-primary); /* #5E3A28 */
+}
+
+.mat-mdc-form-field-label {
+    color: var(--primary-700); /* #D97C5A */
+}
+
+/* Респонзивни стилови */
+@media (max-width: 768px) {
+    .filters {
+    grid-template-columns: 1fr; /* Једна колона на малим екранима */
+    gap: 15px;
+    }
+    
+    mat-form-field {
+    margin-bottom: 10px;
+    }
+}
+
+/* Додатни ефекат за фокус */
+.mat-mdc-form-field.mat-focused .mat-mdc-form-field-infix {
+    box-shadow: 0 0 8px rgba(253, 157, 122, 0.3);
+}
