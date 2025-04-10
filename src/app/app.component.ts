@@ -21,7 +21,8 @@ export class AppComponent {
 
     const profileDialog = this.dialog.open(ProfileComponent, {
       disableClose: true,
-      width: '50vw',
+      width: "50vw",
+      maxWidth: "50vw",
       data: {user: this.authService.getUserById(userId)}
     });
 
