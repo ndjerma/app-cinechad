@@ -1,6 +1,7 @@
 import { Component, EventEmitter, input, Input, Output } from '@angular/core';
 import { MovieService } from '../../../services/movie.service';
 import { Movie } from '../../../interfaces/movie.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-movie-card',
@@ -12,6 +13,8 @@ import { Movie } from '../../../interfaces/movie.interface';
 
 export class MovieCardComponent {
 
+  constructor(private router: Router){}
+
   ngOnInit(){
     if (!this.movie){
       console.error('Movie input is required!');
@@ -22,6 +25,11 @@ export class MovieCardComponent {
   @Output() reservation = new EventEmitter<{movieId: number, tickets: number}>();
 
   ticketCount: number = 1;
+
+  // * nova metoda za navigaciju za movieDetails
+  navigateToMovieDetails(): void{
+    this.router.navigate(['/movies', this.movie.id])
+  }
 
   getFormattedDate(date: Date){
     return new Date(date).toLocaleDateString('en-US', {

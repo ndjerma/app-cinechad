@@ -13,7 +13,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
-
+import { MatTableModule } from '@angular/material/table';
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
     imports: [
@@ -30,7 +31,8 @@ import { MatDialogModule } from '@angular/material/dialog';
         MatCardModule,
         MatSelectModule,
         MatDialogModule, 
-
+        MatTableModule,
+        MatChipsModule,
     ],
     exports: [
         MatButtonModule,
@@ -46,7 +48,8 @@ import { MatDialogModule } from '@angular/material/dialog';
         MatCardModule,
         MatSelectModule,
         MatDialogModule, 
-
+        MatTableModule,
+        MatChipsModule,
     ]
 })
 

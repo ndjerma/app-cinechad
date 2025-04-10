@@ -4,14 +4,14 @@
     <div 
     mat-card-image 
     class="movie-poster"
-    [style.background-image]="'url(' + movie.imageUrl + ')'"></div>
+    [style.background-image]="'url(' + movie.imageUrl + ')'"
+    (click)="navigateToMovieDetails()"></div>
     
     <!-- * zaglavlje sa naslovom -->
     <mat-card-header fxFlex="nogrow">
         <mat-card-title>{{ movie.title }}</mat-card-title>
         <mat-card-subtitle>{{ movie.description | slice:0:100 }}...</mat-card-subtitle>
     </mat-card-header>
-    
     
     <!-- * kontrole za rezervaciju -->
     <mat-card-content>

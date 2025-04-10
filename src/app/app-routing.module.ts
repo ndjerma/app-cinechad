@@ -5,6 +5,7 @@ import { LoginComponent } from './components/auth/login/login.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { MovieListComponent } from './components/movies/movie-list/movie-list.component';
 import { MovieCardComponent } from './components/movies/movie-card/movie-card.component';
+import { MovieDetailsComponent } from './components/movies/movie-details/movie-details.component';
 
 const routes: Routes = [
   {path: '', component: WelcomeComponent},
@@ -12,7 +13,8 @@ const routes: Routes = [
   {path: 'signup', component: SignupComponent},
   {path: 'login', component: LoginComponent},
   {path: 'movies', component: MovieListComponent},
-  {path: 'movie-card', component: MovieCardComponent}
+  {path: 'movie-card', component: MovieCardComponent},
+  {path: 'movies/:id', component: MovieDetailsComponent},
 ];
 
 @NgModule({
