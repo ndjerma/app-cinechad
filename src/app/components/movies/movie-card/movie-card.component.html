@@ -21,8 +21,9 @@
             <span class="price">{{ movie.price }} RSD</span>
         </div>
 
-        <div fxLayout="row" fxLayoutAlign="space-between center" class="ticket-controls">
-            <mat-form-field appearance="outline">
+        <div fxLayout="row" fxLayoutAlign="center center" class="ticket-controls">
+            <!-- ? fxLayoutAlign="center center" je bio iznad -->
+            <!-- <mat-form-field appearance="outline">
                 <mat-label>Ticket number</mat-label>
                 <input 
                     matInput
@@ -32,13 +33,14 @@
                     #ticketInput
                     (keyup.enter)="addToCart()"
                     >
-            </mat-form-field>
+            </mat-form-field> -->
 
             <button 
                 mat-raised-button 
                 color="primary"
-                (click)="addToCart()"
+                (click)="navigateToMovieDetails()"
                 [disabled]="ticketCount < 1"
+                
                 >
                 Reserve
             </button>

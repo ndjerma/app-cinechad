@@ -16,6 +16,8 @@ import { MovieCardComponent } from './components/movies/movie-card/movie-card.co
 import { MovieService } from './services/movie.service';
 import { ProfileComponent } from './components/auth/profile/profile.component';
 import { MovieDetailsComponent } from './components/movies/movie-details/movie-details.component';
+import { CartComponent } from './components/cart/cart.component';
+import { CartService } from './services/cart.service';
 
 
 @NgModule({
@@ -28,6 +30,7 @@ import { MovieDetailsComponent } from './components/movies/movie-details/movie-d
     MovieCardComponent,
     ProfileComponent,
     MovieDetailsComponent,
+    CartComponent,
 
   ],
   imports: [
@@ -37,7 +40,7 @@ import { MovieDetailsComponent } from './components/movies/movie-details/movie-d
     FlexLayoutModule,
     FormsModule
   ],
-  providers: [AuthService, MovieService],
+  providers: [AuthService, MovieService, CartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

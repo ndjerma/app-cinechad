@@ -6,6 +6,7 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
 import { MovieListComponent } from './components/movies/movie-list/movie-list.component';
 import { MovieCardComponent } from './components/movies/movie-card/movie-card.component';
 import { MovieDetailsComponent } from './components/movies/movie-details/movie-details.component';
+import { CartComponent } from './components/cart/cart.component';
 
 const routes: Routes = [
   {path: '', component: WelcomeComponent},
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'movies', component: MovieListComponent},
   {path: 'movie-card', component: MovieCardComponent},
   {path: 'movies/:id', component: MovieDetailsComponent},
+  { path: 'cart', component: CartComponent }
 ];
 
 @NgModule({

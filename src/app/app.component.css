@@ -172,3 +172,31 @@ mat-nav-list a:hover {
     height: 40px;
     }
 }
+
+
+/* Stil za cart ikonicu */
+.cart-link {
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+    text-decoration: none;
+    color: inherit;
+}
+
+.badge {
+    background-color: #FEBDA0;
+    color: #5E3A28;
+    border-radius: 50%;
+    padding: 2px 8px;
+    font-size: 0.8rem;
+    margin-left: 5px;
+}
+
+/* Responsive prilagodba */
+@media (max-width: 600px) {
+    .cart-link span.badge {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+    }
+}

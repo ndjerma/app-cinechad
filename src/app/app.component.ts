@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AuthService } from './services/auth.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ProfileComponent } from './components/auth/profile/profile.component';
+import { CartService } from './services/cart.service';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,10 @@ export class AppComponent {
 
   profileOpened: boolean = false;
 
-  constructor (public authService: AuthService, public dialog: MatDialog) {}
+  constructor (public authService: AuthService,
+              public dialog: MatDialog,
+              public cartService: CartService
+            ) {}
 
   openProfile(userId: number) {
     this.profileOpened = true; 

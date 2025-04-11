@@ -1,7 +1,7 @@
-import { Component, EventEmitter, input, Input, Output } from '@angular/core';
-import { MovieService } from '../../../services/movie.service';
+import { Component, Input } from '@angular/core';
 import { Movie } from '../../../interfaces/movie.interface';
-import { Router } from '@angular/router';
+import { Router } from '@angular/router'; 
+import { CartService } from '../../../services/cart.service';
 
 @Component({
   selector: 'app-movie-card',
@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 
 export class MovieCardComponent {
 
-  constructor(private router: Router){}
+  constructor(private router: Router, private cartService: CartService){}
 
   ngOnInit(){
     if (!this.movie){
@@ -22,8 +22,6 @@ export class MovieCardComponent {
   }
 
   @Input() movie!: Movie;
-  @Output() reservation = new EventEmitter<{movieId: number, tickets: number}>();
-
   ticketCount: number = 1;
 
   // * nova metoda za navigaciju za movieDetails
@@ -41,11 +39,21 @@ export class MovieCardComponent {
   }
 
   addToCart(){
-    if(this.ticketCount > 0){
-      this.reservation.emit({
+    if(this.ticketCount > 0 && this.movie.projections.length > 0){
+      const cartItem = {
         movieId: this.movie.id,
-        tickets: this.ticketCount
-      });
+        projectionId: this.movie.projections[0].id,   //uzimamo prvu projekciju
+        title: this.movie.title,
+        dateTime: this.movie.projections[0].dateTime,
+        price: this.movie.price,
+        quantity: this.ticketCount,
+        status: 'reserved' as const
+      }
+
+      this.cartService.addToCart(cartItem);
+
+      // ! mozda nije dobra ideja ovo
+      this.router.navigate(['/cart']); // Redirektujemo korisnika u korpu
     }
   }
 

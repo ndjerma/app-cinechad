@@ -3,6 +3,8 @@ import { MovieService } from '../../../services/movie.service';
 import { Movie } from '../../../interfaces/movie.interface';
 import { ActivatedRoute } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
+import { CartService } from '../../../services/cart.service';
+import { CartItem } from '../../../interfaces/cart.interface';
 
 @Component({
   selector: 'app-movie-details',
@@ -23,7 +25,9 @@ export class MovieDetailsComponent implements OnInit {
     'actions'
   ];
   
-  constructor(private route: ActivatedRoute, private movieService: MovieService) {}
+  constructor(private route: ActivatedRoute, 
+              private movieService: MovieService, 
+              private cartService: CartService) {}
 
   ngOnInit(): void {  
     const id = Number(this.route.snapshot.paramMap.get('id'));  //* Hvatamo vrednost id filma iz URL-a
@@ -42,13 +46,19 @@ export class MovieDetailsComponent implements OnInit {
   }
   reserveProjection(projection: any): void{
     if (projection.availableSeats > 0) {
-      // simulacija rezervacije
+      const cartItem: CartItem = {
+        movieId: this.movie.id,
+        projectionId: projection.id,
+        title: this.movie.title,
+        dateTime: new Date(projection.dateTime),
+        price: this.movie.price,
+        quantity: 1,
+        status: 'reserved'
+      };
+  
+      this.cartService.addToCart(cartItem);
       projection.availableSeats--;
-
-      // Azuriranje podataka u tabeli
       this.dataSource.data = [...this.dataSource.data];
-
-      // TODO:: dodati u cartservice kada ga implementiramo
     }
 
   }
