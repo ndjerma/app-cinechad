@@ -25,6 +25,36 @@ export class MovieService{
                     dateTime: new Date(2024, 2, 15, 20, 0), 
                     availableSeats: 100,
                     status: 'available'
+                },
+                { 
+                    id: 2, 
+                    dateTime: new Date(2024, 2, 16, 18, 30), 
+                    availableSeats: 50,
+                    status: 'available'
+                },
+                { 
+                    id: 3, 
+                    dateTime: new Date(2024, 2, 16, 21, 0), 
+                    availableSeats: 20,
+                    status: 'sold_out'
+                },
+                { 
+                    id: 4, 
+                    dateTime: new Date(2024, 2, 17, 15, 0), 
+                    availableSeats: 80,
+                    status: 'available'
+                },
+                { 
+                    id: 5, 
+                    dateTime: new Date(2024, 2, 17, 20, 0),
+                    availableSeats: 0,
+                    status: 'sold_out'
+                },
+                { 
+                    id: 6, 
+                    dateTime: new Date(2024, 2, 18, 19, 45),
+                    availableSeats: 120,
+                    status: 'available'
                 }
             ],
             price: 550,
@@ -43,9 +73,39 @@ export class MovieService{
             releaseDate: new Date(2008, 6, 18),
             projections: [
                 { 
-                    id: 2, 
-                    dateTime: new Date(2024, 1, 19, 19, 30), 
-                    availableSeats: 40,
+                    id: 7, 
+                    dateTime: new Date(2024, 2, 15, 20, 0), 
+                    availableSeats: 100,
+                    status: 'available'
+                },
+                { 
+                    id: 8, 
+                    dateTime: new Date(2024, 2, 16, 18, 30), 
+                    availableSeats: 50,
+                    status: 'available'
+                },
+                { 
+                    id: 9, 
+                    dateTime: new Date(2024, 2, 16, 21, 0), 
+                    availableSeats: 20,
+                    status: 'sold_out'
+                },
+                { 
+                    id: 10, 
+                    dateTime: new Date(2024, 2, 17, 15, 0), 
+                    availableSeats: 80,
+                    status: 'available'
+                },
+                { 
+                    id: 11, 
+                    dateTime: new Date(2024, 2, 17, 20, 0),
+                    availableSeats: 0,
+                    status: 'sold_out'
+                },
+                { 
+                    id: 12, 
+                    dateTime: new Date(2024, 2, 18, 19, 45),
+                    availableSeats: 120,
                     status: 'available'
                 }
             ],
@@ -65,9 +125,33 @@ export class MovieService{
             releaseDate: new Date(1994, 9, 10),
             projections: [
                 { 
-                    id: 3, 
-                    dateTime: new Date(2024, 3, 16, 20, 30), 
-                    availableSeats: 60,
+                    id: 13, 
+                    dateTime: new Date(2024, 2, 16, 18, 30), 
+                    availableSeats: 50,
+                    status: 'available'
+                },
+                { 
+                    id: 14, 
+                    dateTime: new Date(2024, 2, 16, 21, 0), 
+                    availableSeats: 20,
+                    status: 'sold_out'
+                },
+                { 
+                    id: 15, 
+                    dateTime: new Date(2024, 2, 17, 15, 0), 
+                    availableSeats: 80,
+                    status: 'available'
+                },
+                { 
+                    id: 16, 
+                    dateTime: new Date(2024, 2, 17, 20, 0),
+                    availableSeats: 0,
+                    status: 'sold_out'
+                },
+                { 
+                    id: 17, 
+                    dateTime: new Date(2024, 2, 18, 19, 45),
+                    availableSeats: 120,
                     status: 'available'
                 }
             ],
@@ -87,10 +171,22 @@ export class MovieService{
             releaseDate: new Date(1993, 11, 30),
             projections: [
                 { 
-                    id: 4, 
+                    id: 18, 
                     dateTime: new Date(2024, 3, 16, 20, 30), 
                     availableSeats: 0,
                     status: 'sold_out'
+                },
+                { 
+                    id: 19, 
+                    dateTime: new Date(2024, 2, 17, 20, 0),
+                    availableSeats: 0,
+                    status: 'sold_out'
+                },
+                { 
+                    id: 20, 
+                    dateTime: new Date(2024, 2, 18, 19, 45),
+                    availableSeats: 120,
+                    status: 'available'
                 }
             ],
             price: 600,
@@ -109,9 +205,27 @@ export class MovieService{
             releaseDate: new Date(1990, 9, 9),
             projections: [
                 { 
-                    id: 5, 
+                    id: 21, 
                     dateTime: new Date(2024, 3, 16, 20, 30), 
                     availableSeats: 40,
+                    status: 'available'
+                },
+                { 
+                    id: 22, 
+                    dateTime: new Date(2024, 3, 16, 20, 30), 
+                    availableSeats: 0,
+                    status: 'sold_out'
+                },
+                { 
+                    id: 23, 
+                    dateTime: new Date(2024, 2, 17, 20, 0),
+                    availableSeats: 0,
+                    status: 'sold_out'
+                },
+                { 
+                    id: 24, 
+                    dateTime: new Date(2024, 2, 18, 19, 45),
+                    availableSeats: 120,
                     status: 'available'
                 }
             ],
@@ -131,11 +245,36 @@ export class MovieService{
             releaseDate: new Date(2003, 9, 9),
             projections: [
                 { 
-                    id: 6, 
+                    id: 25, 
                     dateTime: new Date(2024, 3, 16, 19, 30), 
                     availableSeats: 100,
                     status: 'available'
+                },
+                { 
+                    id: 26, 
+                    dateTime: new Date(2024, 3, 16, 20, 30), 
+                    availableSeats: 40,
+                    status: 'available'
+                },
+                { 
+                    id: 27, 
+                    dateTime: new Date(2024, 3, 16, 20, 30), 
+                    availableSeats: 0,
+                    status: 'sold_out'
+                },
+                { 
+                    id: 28, 
+                    dateTime: new Date(2024, 2, 17, 20, 0),
+                    availableSeats: 0,
+                    status: 'sold_out'
+                },
+                { 
+                    id: 29, 
+                    dateTime: new Date(2024, 2, 18, 19, 45),
+                    availableSeats: 120,
+                    status: 'available'
                 }
+
             ],
             price: 800,
             reviews: []
@@ -152,10 +291,34 @@ export class MovieService{
             cast: ['John Travolta', 'Uma Thurman', 'Samuel L. Jackson'],
             releaseDate: new Date(1994, 5, 21, 20, 30),
             projections: [
-                {
-                    id: 7,
+                { 
+                    id: 30, 
                     dateTime: new Date(2024, 3, 16, 19, 30), 
                     availableSeats: 100,
+                    status: 'available'
+                },
+                { 
+                    id: 31, 
+                    dateTime: new Date(2024, 3, 16, 20, 30), 
+                    availableSeats: 40,
+                    status: 'available'
+                },
+                { 
+                    id: 32, 
+                    dateTime: new Date(2024, 3, 16, 20, 30), 
+                    availableSeats: 0,
+                    status: 'sold_out'
+                },
+                { 
+                    id: 33, 
+                    dateTime: new Date(2024, 2, 17, 20, 0),
+                    availableSeats: 0,
+                    status: 'sold_out'
+                },
+                { 
+                    id: 34, 
+                    dateTime: new Date(2024, 2, 18, 19, 45),
+                    availableSeats: 120,
                     status: 'available'
                 }
             ],
@@ -175,11 +338,23 @@ export class MovieService{
             releaseDate: new Date(1999, 9, 15, 20, 0),
             projections: [
                 {
-                    id: 8,
+                    id: 35,
                     dateTime: new Date(2024, 3, 20, 20, 30),
                     availableSeats: 90,
                     status: 'available'
-                }
+                },
+                { 
+                    id: 36, 
+                    dateTime: new Date(2024, 3, 16, 20, 30), 
+                    availableSeats: 0,
+                    status: 'sold_out'
+                },
+                { 
+                    id: 37, 
+                    dateTime: new Date(2024, 2, 17, 20, 0),
+                    availableSeats: 0,
+                    status: 'sold_out'
+                },
             ],
             price: 850,
             reviews: []
@@ -197,10 +372,22 @@ export class MovieService{
             releaseDate: new Date(1994, 6, 6, 20, 30),
             projections: [
                 {
-                    id: 9,
+                    id: 38,
                     dateTime: new Date(2024, 3, 21, 18, 0),
                     availableSeats: 95,
                     status: 'available'
+                },
+                { 
+                    id: 39, 
+                    dateTime: new Date(2024, 3, 16, 20, 30), 
+                    availableSeats: 0,
+                    status: 'sold_out'
+                },
+                { 
+                    id: 40, 
+                    dateTime: new Date(2024, 3, 16, 20, 30), 
+                    availableSeats: 0,
+                    status: 'sold_out'
                 }
             ],
             price: 850,
@@ -219,11 +406,23 @@ export class MovieService{
             releaseDate: new Date(1995, 8, 22, 21, 0),
             projections: [
                 {
-                    id: 10,
+                    id: 41,
                     dateTime: new Date(2024, 3, 22, 19, 30),
                     availableSeats: 90,
                     status: 'available'
-                }
+                },
+                { 
+                    id: 42, 
+                    dateTime: new Date(2024, 3, 16, 20, 30), 
+                    availableSeats: 0,
+                    status: 'sold_out'
+                },
+                { 
+                    id: 43, 
+                    dateTime: new Date(2024, 2, 17, 20, 0),
+                    availableSeats: 0,
+                    status: 'sold_out'
+                },
             ],
             price: 800,
             reviews: []
@@ -241,11 +440,23 @@ export class MovieService{
             releaseDate: new Date(1991, 1, 14, 20, 0),
             projections: [
                 {
-                    id: 11,
+                    id: 44,
                     dateTime: new Date(2024, 3, 23, 20, 0),
                     availableSeats: 80,
                     status: 'available'
-                }
+                },
+                { 
+                    id: 45, 
+                    dateTime: new Date(2024, 3, 16, 20, 30), 
+                    availableSeats: 0,
+                    status: 'sold_out'
+                },
+                { 
+                    id: 46, 
+                    dateTime: new Date(2024, 2, 17, 21, 0),
+                    availableSeats: 0,
+                    status: 'sold_out'
+                },
             ],
             price: 850,
             reviews: []
@@ -262,9 +473,27 @@ export class MovieService{
             releaseDate: new Date(2014, 10, 7, 20, 0),
             projections: [
                 {
-                    id: 12,
+                    id: 47,
                     dateTime: new Date(2024, 3, 24, 19, 30),
                     availableSeats: 100,
+                    status: 'available'
+                },
+                { 
+                    id: 48, 
+                    dateTime: new Date(2024, 2, 17, 15, 0), // 17. ožujka 15:00
+                    availableSeats: 80,
+                    status: 'available'
+                },
+                { 
+                    id: 49, 
+                    dateTime: new Date(2024, 2, 17, 20, 0), // 17. ožujka 20:00
+                    availableSeats: 0,
+                    status: 'sold_out'
+                },
+                { 
+                    id: 50, 
+                    dateTime: new Date(2024, 2, 18, 19, 45), // 18. ožujka 19:45
+                    availableSeats: 120,
                     status: 'available'
                 }
             ],
@@ -283,7 +512,7 @@ export class MovieService{
             releaseDate: new Date(1999, 11, 10, 20, 0),
             projections: [
                 {
-                    id: 13,
+                    id: 51,
                     dateTime: new Date(2024, 3, 25, 17, 30),
                     availableSeats: 85,
                     status: 'available'
@@ -304,7 +533,7 @@ export class MovieService{
             releaseDate: new Date(2002, 8, 25, 20, 0),
             projections: [
                 {
-                    id: 14,
+                    id: 52,
                     dateTime: new Date(2024, 3, 26, 20, 30),
                     availableSeats: 70,
                     status: 'available'
@@ -325,11 +554,30 @@ export class MovieService{
             releaseDate: new Date(2000, 4, 5, 21, 0),
             projections: [
                 {
-                    id: 15,
+                    id: 53,
                     dateTime: new Date(2024, 3, 27, 18, 30),
                     availableSeats: 100,
                     status: 'available'
-                }
+                },
+                {
+                    id: 54,
+                    dateTime: new Date(2024, 3, 22, 19, 30),
+                    availableSeats: 90,
+                    status: 'available'
+                },
+                { 
+                    id: 55, 
+                    dateTime: new Date(2024, 3, 16, 20, 30), 
+                    availableSeats: 0,
+                    status: 'sold_out'
+                },
+                { 
+                    id: 56, 
+                    dateTime: new Date(2024, 2, 17, 20, 0),
+                    availableSeats: 0,
+                    status: 'sold_out'
+                },
+
             ],
             price: 950,
             reviews: []
@@ -346,11 +594,29 @@ export class MovieService{
             releaseDate: new Date(2006, 9, 20, 20, 0),
             projections: [
                 {
-                    id: 16,
+                    id: 57,
                     dateTime: new Date(2024, 3, 28, 20, 30),
                     availableSeats: 90,
                     status: 'available'
-                }
+                },
+                {
+                    id: 58,
+                    dateTime: new Date(2024, 3, 22, 19, 30),
+                    availableSeats: 90,
+                    status: 'available'
+                },
+                { 
+                    id: 59, 
+                    dateTime: new Date(2024, 3, 16, 20, 30), 
+                    availableSeats: 0,
+                    status: 'sold_out'
+                },
+                { 
+                    id: 60, 
+                    dateTime: new Date(2024, 2, 17, 20, 0),
+                    availableSeats: 0,
+                    status: 'sold_out'
+                },
             ],
             price: 850,
             reviews: []
@@ -367,11 +633,29 @@ export class MovieService{
             releaseDate: new Date(2014, 0, 16, 19, 30),
             projections: [
                 {
-                    id: 17,
+                    id: 61,
                     dateTime: new Date(2024, 3, 29, 19, 0),
                     availableSeats: 85,
                     status: 'available'
-                }
+                },
+                {
+                    id: 62,
+                    dateTime: new Date(2024, 3, 22, 19, 30),
+                    availableSeats: 90,
+                    status: 'available'
+                },
+                { 
+                    id: 63, 
+                    dateTime: new Date(2024, 3, 16, 20, 30), 
+                    availableSeats: 0,
+                    status: 'sold_out'
+                },
+                { 
+                    id: 64, 
+                    dateTime: new Date(2024, 2, 17, 20, 0),
+                    availableSeats: 0,
+                    status: 'sold_out'
+                },
             ],
             price: 800,
             reviews: []
@@ -388,10 +672,16 @@ export class MovieService{
             releaseDate: new Date(2019, 4, 30, 20, 0),
             projections: [
                 {
-                    id: 18,
+                    id: 65,
                     dateTime: new Date(2024, 3, 30, 20, 30),
                     availableSeats: 95,
                     status: 'available'
+                },
+                { 
+                    id: 66, 
+                    dateTime: new Date(2024, 2, 17, 20, 0),
+                    availableSeats: 0,
+                    status: 'sold_out'
                 }
             ],
             price: 950,
@@ -409,11 +699,17 @@ export class MovieService{
             releaseDate: new Date(2006, 9, 6, 21, 0),
             projections: [
                 {
-                    id: 19,
+                    id: 67,
                     dateTime: new Date(2024, 3, 30, 21, 30),
                     availableSeats: 88,
                     status: 'available'
-                }
+                },
+                { 
+                    id: 68, 
+                    dateTime: new Date(2024, 2, 17, 20, 0),
+                    availableSeats: 0,
+                    status: 'sold_out'
+                },
             ],
             price: 900,
             reviews: []
@@ -430,11 +726,29 @@ export class MovieService{
             releaseDate: new Date(2012, 11, 25, 20, 0),
             projections: [
                 {
-                    id: 20,
+                    id: 69,
                     dateTime: new Date(2024, 3, 31, 19, 0),
                     availableSeats: 90,
                     status: 'available'
-                }
+                },
+                { 
+                    id: 70, 
+                    dateTime: new Date(2024, 2, 17, 20, 0),
+                    availableSeats: 0,
+                    status: 'sold_out'
+                },
+                { 
+                    id: 71, 
+                    dateTime: new Date(2024, 2, 17, 20, 0),
+                    availableSeats: 0,
+                    status: 'sold_out'
+                },
+                { 
+                    id: 72, 
+                    dateTime: new Date(2024, 2, 17, 20, 0),
+                    availableSeats: 0,
+                    status: 'sold_out'
+                },
             ],
             price: 950,
             reviews: []
