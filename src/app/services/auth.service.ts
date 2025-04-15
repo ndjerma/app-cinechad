@@ -25,7 +25,7 @@ export class AuthService {
             date: new Date("2025-04-31 20:01")
         }]
 
-        currentUser: User = AuthService.dummyUserList[0];
+        currentUser: User  = AuthService.dummyUserList[0];
 
         // * korisnicko ime getUsername
         getUsername(user: User): string{

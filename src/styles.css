@@ -89,3 +89,5 @@ input.mat-input-element:-ms-autofill:focus {
 .mat-input-element {
     color: #333 !important;
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

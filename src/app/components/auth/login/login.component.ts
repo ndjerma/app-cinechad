@@ -20,6 +20,7 @@ export class LoginComponent {
   onSubmit(form: NgForm){
     console.log("Form submitted!"); // <-- dodaj ovo
     var email = form.value.email;
+    console.log(email);
     var password = form.value.password;
     
     /*

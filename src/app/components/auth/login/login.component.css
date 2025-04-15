@@ -74,7 +74,7 @@ a:hover {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-}
+} 
 
 mat-hint {
     font-size: 0.8rem;
@@ -110,3 +110,5 @@ mat-datepicker-toggle[matIconSuffix] {
     display: flex;
     align-items: center;
 }
+
+
