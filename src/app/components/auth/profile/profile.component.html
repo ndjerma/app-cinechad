@@ -8,13 +8,15 @@
 
     <!-- ? edit dugme -->
     <button mat-icon-button (click)="enableEdit()">
-        <mat-icon matListItemIcon *ngIf="this.profileForInput.id == this.authService.currentUser.id"
+        <mat-icon matListItemIcon *ngIf="authService.currentUser?.id === profileForInput.id"
         (click)="this.isEditing = !this.isEditing">
             edit
         </mat-icon>
     </button>
 </div>
 
+
+<!-- authService.currentUser ? authService.currentUser.email : 'User Profile -->
 <mat-dialog-content>
     <form fxLayout="column" fxLayoutGap="1rem" #editForm="ngForm" (ngSubmit)="finishEditing()">
 

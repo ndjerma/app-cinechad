@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { User } from "../interfaces/user.interface";
 import { max } from "rxjs";
+import { Router } from "@angular/router";
 
 @Injectable()
 export class AuthService {
@@ -25,7 +26,40 @@ export class AuthService {
             date: new Date("2025-04-31 20:01")
         }]
 
-        currentUser: User  = AuthService.dummyUserList[0];
+        // currentUser: User  = AuthService.dummyUserList[0];
+        currentUser: User | null = null;
+        isLoggedIn = false;
+
+        constructor (private router: Router){
+            const user = localStorage.getItem('currentUser');
+            if (user) {
+                this.currentUser = JSON.parse(user);
+                this.isLoggedIn = true;
+            }
+        }
+
+        isAuthenticated(): boolean{
+            return this.isLoggedIn;
+        }
+
+        login(email: string, password: string): boolean {
+            const user = AuthService.dummyUserList.find(u => u.email == email && u.password == password);
+            if(user){
+                this.currentUser = user;
+                this.isLoggedIn = true;
+                localStorage.setItem('currentUser', JSON.stringify(user));
+                return true;
+            }
+            return false;
+        }
+
+        logout(): void{ 
+            this.currentUser = null;
+            this.isLoggedIn = false;
+            localStorage.removeItem('currentUser');
+        }
+
+
 
         // * korisnicko ime getUsername
         getUsername(user: User): string{
@@ -33,29 +67,28 @@ export class AuthService {
         }
 
         // * id korisnika getUserById
-        getUserById(id: number): User {
-            var foundUser!: User;
-
-            AuthService.dummyUserList.forEach(user => {
-                if(user.id == id){
-                    foundUser = user;
-                }
-            });
-
-            this.currentUser = foundUser;
-            return foundUser;
+        getUserById(id: number): User | null {
+            const foundUser = AuthService.dummyUserList.find(user => user.id == id);
+            if(foundUser) {
+                this.currentUser = foundUser;
+            }
+            return foundUser || null;
         }
 
         // * prikaz korisnika - getUser
         getUser(userEmail: string): User | undefined {
-            this.currentUser = AuthService.dummyUserList.find(userToFind => userToFind.email === userEmail)!;
-            return this.currentUser;
+            const user = AuthService.dummyUserList.find(userToFind => userToFind.email == userEmail);
+
+            if(user) {
+                this.currentUser = user;
+            }
+            return user;
         }
 
         // * provera lozinke
         isPasswordCorrect(userEmail: string, userPass: string): boolean {
-            return AuthService.dummyUserList.find(userToFind => 
-                (userToFind.email === userEmail && userToFind.password === userPass)) != undefined;
+            return AuthService.dummyUserList.some(userToFind => 
+                (userToFind.email === userEmail && userToFind.password === userPass));
         }
 
         //* registruj korisnika
