@@ -18,7 +18,7 @@ export class LoginComponent {
   constructor (private authService: AuthService, private router: Router) {}
 
   onSubmit(form: NgForm){
-
+    console.log("Form submitted!"); // <-- dodaj ovo
     var email = form.value.email;
     var password = form.value.password;
     

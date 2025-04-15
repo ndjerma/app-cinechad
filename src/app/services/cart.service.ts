@@ -39,17 +39,15 @@ export class CartService {
 
     // * Ručno promeni status (za demo)
     setItemStatus(index: number, status: 'reserved' | 'watched' | 'canceled'): void {
-        if (this.cartItems[index]) {
-            this.cartItems[index].status = status;
-        }
+        this.cartItems[index].status = status;
     }
 
     // * Simuliraj statuse za demo
     private mockStatuses(): void {
         this.cartItems.forEach((item, index) => {
-        if (index === 0) item.status = 'reserved';  // Prva stavka = rezervisano
-        else if (index === 1) item.status = 'watched'; // Druga = gledano
-        else if (index === 2) item.status = 'canceled'; // Treća = otkazano
+        if (index % 3 === 0) item.status = 'reserved';
+        else if (index % 3 === 1) item.status = 'watched';
+        else item.status = 'canceled';
         });
     }
 

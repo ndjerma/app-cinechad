@@ -29,9 +29,8 @@ export class CartComponent implements OnInit {
     this.dataSource.data = [...this.cartService.getCartItems()]; // Forsiraj refresh
   }
 
-  // * Boja za status čip
   getStatusColor(status: string): string {
-    switch (status) {
+    switch (status.toLowerCase()) { // Dodaj .toLowerCase() za slučaj razlike u veličini slova
       case 'reserved': return 'primary';
       case 'watched': return 'accent';
       case 'canceled': return 'warn';

@@ -1,4 +1,4 @@
-import { Injectable, ResourceStatus } from "@angular/core";
+import { Injectable } from "@angular/core";
 import { User } from "../interfaces/user.interface";
 import { max } from "rxjs";
 
@@ -47,19 +47,19 @@ export class AuthService {
         }
 
         // * prikaz korisnika - getUser
-        getUser(userEmail: string): User {
-            this.currentUser = AuthService.dummyUserList.find(userToFind => userToFind.email == userEmail)!;
+        getUser(userEmail: string): User | undefined {
+            this.currentUser = AuthService.dummyUserList.find(userToFind => userToFind.email === userEmail)!;
             return this.currentUser;
         }
 
         // * provera lozinke
         isPasswordCorrect(userEmail: string, userPass: string): boolean {
             return AuthService.dummyUserList.find(userToFind => 
-                (userToFind.email == userEmail && userToFind.password == userPass)) != undefined;
+                (userToFind.email === userEmail && userToFind.password === userPass)) != undefined;
         }
 
         //* registruj korisnika
-        registerUser(email: string, password: string, date: Date): User{
+        registerUser(email: string, password: string, date: Date): User {
             var maxId: number = 0;
             AuthService.dummyUserList.forEach(user =>
                 {
