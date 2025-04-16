@@ -60,7 +60,7 @@ export class CartComponent implements OnInit {
       this.cartService.updateQuantity(item.movieId, item.projectionId, newQty)
     }
   }
-
+  
   // * rucno menjanje statusa 
   changeStatus(item: CartItem): void {
     const current = item.status;

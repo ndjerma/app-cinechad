@@ -1,6 +1,7 @@
 export interface Projection {
     id: number;
-    dateTime: Date;
-    availableSeats: number;
-    status: 'available' | 'sold_out';
+    datetime: Date;
+    price: number;
+    status?: 'reserved' | 'watched' | 'canceled';
+    userRating?: number; // od 1 do 5
 }
