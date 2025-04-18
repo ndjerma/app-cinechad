@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { CartItem } from "../interfaces/cart.interface";
+import { CartItem } from "../interfaces/cartItem.interface";
 import { Projection } from "../interfaces/projection.interface";
 
 
@@ -20,7 +20,17 @@ export class CartService {
             existingItem.quantity += item.quantity;
             existingItem.price = item.price; // * azuriramo cenu ako je promenjena
         } else {
-            this.cartItems.push({...item, status: 'reserved'});
+            // this.cartItems.push({...item, status: 'reserved'});
+            let status: 'reserved' | 'watched' | 'canceled' = 'reserved';
+
+            if (this.isDemoMode) {
+            const rand = Math.random();
+            if (rand < 0.33) status = 'reserved';
+            else if (rand < 0.66) status = 'watched';
+            else status = 'canceled';
+            }
+
+            this.cartItems.push({ ...item, status });
         }
     }
 
@@ -31,9 +41,6 @@ export class CartService {
 
     // * Vrati sve stavke (sa mock statusima ako je demo)
     getCartItems(): CartItem[] {
-        if (this.isDemoMode){
-            this.mockStatuses();
-        }
         return this.cartItems;
     }
 
@@ -42,14 +49,14 @@ export class CartService {
         this.cartItems[index].status = status;
     }
 
-    // * Simuliraj statuse za demo
-    private mockStatuses(): void {
-        this.cartItems.forEach((item, index) => {
-        if (index % 3 === 0) item.status = 'reserved';
-        else if (index % 3 === 1) item.status = 'watched';
-        else item.status = 'canceled';
-        });
-    }
+    // // * Simuliraj statuse za demo
+    // private mockStatuses(): void {
+    //     this.cartItems.forEach((item, index) => {
+    //     if (index % 3 === 0) item.status = 'reserved';
+    //     else if (index % 3 === 1) item.status = 'watched';
+    //     else item.status = 'canceled';
+    //     });
+    // }
 
     // * filtriramo niz tako da zadrzimo sve stavke OSIM one sa unesenim ID-jem
     // * tj tu jednu specificnu brisemo

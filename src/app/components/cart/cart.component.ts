@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { CartItem } from '../../interfaces/cart.interface';
+import { CartItem } from '../../interfaces/cartItem.interface';
 import { CartService } from '../../services/cart.service';
 
 @Component({
@@ -13,8 +13,10 @@ export class CartComponent implements OnInit {
 
   displayedColumns: string[] = [
     'title', 'date', 'price', 'quantity', 'total',
-    'status', 'actions', 'demoControls' // Dodajemo demo kolonu
+    'status', 'actions' 
   ];
+  // displayedColumns: string[] = ['title', 'date', 'price', 'quantity', 'status', 'actions'];
+
   dataSource = new MatTableDataSource<CartItem>([]);
 
   constructor(public cartService: CartService) {}
@@ -44,6 +46,10 @@ export class CartComponent implements OnInit {
   }
 
   removeItem(item: CartItem): void {
+    if(item.status !== "watched"){
+      return;
+    }
+
     this.cartService.removeItem(item.movieId, item.projectionId);
     this.dataSource.data = this.cartService.getCartItems(); // * azuriram podatke
   }
@@ -54,4 +60,23 @@ export class CartComponent implements OnInit {
       this.cartService.updateQuantity(item.movieId, item.projectionId, newQty)
     }
   }
+
+  // * rucno menjanje statusa 
+  changeStatus(item: CartItem): void {
+    const current = item.status;
+    const next = current === 'reserved' ? 'watched' :
+                 current === 'watched' ? 'canceled' : 'reserved';
+  
+    item.status = next;
+  }
+
+  
+  canDelete(item: CartItem): boolean {
+    return item.status === 'watched';
+  }
+  
+  canChange(item: CartItem): boolean {
+    return item.status === 'reserved';
+  }
+  
 }

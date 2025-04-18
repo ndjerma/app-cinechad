@@ -4,7 +4,7 @@ import { Movie } from '../../../interfaces/movie.interface';
 import { ActivatedRoute } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 import { CartService } from '../../../services/cart.service';
-import { CartItem } from '../../../interfaces/cart.interface';
+import { CartItem } from '../../../interfaces/cartItem.interface';
 
 @Component({
   selector: 'app-movie-details',
