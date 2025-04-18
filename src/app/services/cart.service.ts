@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { CartItem } from "../interfaces/cart.interface";
+import { CartItem } from "../interfaces/cartItem.interface";
 import { Projection } from "../interfaces/projection.interface";
 
 
