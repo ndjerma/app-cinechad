@@ -18,6 +18,9 @@ import { ProfileComponent } from './components/auth/profile/profile.component';
 import { MovieDetailsComponent } from './components/movies/movie-details/movie-details.component';
 import { CartComponent } from './components/cart/cart.component';
 import { CartService } from './services/cart.service';
+import { ReviewService } from './services/review.service';
+import { ReviewComponent } from './components/review/review.component';
+
 
 
 @NgModule({
@@ -31,16 +34,18 @@ import { CartService } from './services/cart.service';
     ProfileComponent,
     MovieDetailsComponent,
     CartComponent,
-
+    ReviewComponent,
+  
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MatModule,
     FlexLayoutModule,
-    FormsModule
-  ],
-  providers: [AuthService, MovieService, CartService],
+    FormsModule,
+    FormsModule,
+],
+  providers: [AuthService, MovieService, CartService, ReviewService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

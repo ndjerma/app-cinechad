@@ -1,36 +1,73 @@
 import { Injectable } from '@angular/core';
 import { Review } from '../interfaces/review.interface';
+import { MovieService } from './movie.service';
 
 @Injectable({
     providedIn: 'root',
 })
 export class ReviewService {
+    constructor(private movieService: MovieService) {}  
 
-    private reviews: Review[] = [];
-
-    getReviewsForProjection(projectionId: number): Review[] {
-        return this.reviews.filter(r => r.projectionId === projectionId);
-    }
+    private reviews: Review[] = [
+        {
+            id: 1,
+            userId: 1,
+            projectionId: 1,        // ? Pripada filmu Inception (id=1)
+            rating: 9,
+            comment: 'Odličan film! Preporučujem svima.',
+            date: new Date('2024-04-10'),
+            userName: 'djermaaa@gmail.com'
+          },
+          {
+            id: 2,
+            userId: 2,
+            projectionId: 2,    // ? Pripada filmu Inception (id=1)
+            rating: 7,
+            comment: 'Solidno, ali sam očekivao više.',
+            date: new Date('2024-04-12'),
+            userName: 'itsjohnny@gmail.com'
+          },
+          {
+            id: 3,
+            userId: 3,
+            projectionId: 7,    // ? Pripada filmu Dark Knight (id=2)
+            rating: 10,
+            comment: 'Savršeno iskustvo u bioskopu!',
+            date: new Date('2024-04-14'),
+            userName: 'mims@gmail.com'
+          }
+    ];
 
     addReview(review: Review): void {
         this.reviews.push({ ...review, id: Date.now(), date: new Date() });
     }
 
-    getAverageRating(projectionId: number): number {
-        const relevant = this.getReviewsForProjection(projectionId);
-        if (relevant.length === 0) return 0;
-        const total = relevant.reduce((sum, r) => sum + r.rating, 0);
-        return total / relevant.length;
+    getAverageRating(movieId: number): number {
+        //? Hvatam sve review-ove za film 
+        const movieReviews = this.getReviewsForMovie(movieId);
+
+        //? Ako nema review-ova vracam 0
+        if(movieReviews.length === 0) return 0;
+
+        //? Racunam prosek ocena
+        const total = movieReviews.reduce((sum, review) => sum + review.rating, 0);
+        const average = total / movieReviews.length;
+
+        //? Zaokruzimo na 1 decimalu
+        return parseFloat(average.toFixed(1));
     }
 
     getReviewsForMovie(movieId: number): Review[] {
-        // Ovde bi ti trebalo da imaš mapiranje projekcija po filmu
-        return this.reviews.filter(r => this.projectionBelongsToMovie(r.projectionId, movieId));
+        // ? Dohvatam sve projekcije za dati film 
+        const movieProjections = this.movieService.getMovieById(movieId)?.projections || [];
+        const projectionIds = movieProjections.map(p => p.id);
+
+        // ? Filtriram review-ove cije projekcije pripadaju filmu 
+        return this.reviews.filter(r => projectionIds.includes(r.projectionId));
+    
     }
 
-        private projectionBelongsToMovie(projId: number, movieId: number): boolean {
-            // lookup u nekom servisu ili mapi
-            return true;
-        }
+        
+
 
 }

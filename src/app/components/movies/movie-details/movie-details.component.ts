@@ -5,6 +5,8 @@ import { ActivatedRoute } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 import { CartService } from '../../../services/cart.service';
 import { CartItem } from '../../../interfaces/cartItem.interface';
+import { Projection } from '../../../interfaces/projection.interface';
+
 
 @Component({
   selector: 'app-movie-details',
@@ -16,6 +18,7 @@ import { CartItem } from '../../../interfaces/cartItem.interface';
 export class MovieDetailsComponent implements OnInit {
   
   movie!: Movie;
+  selectedProjection!: Projection;
   dataSource!: MatTableDataSource<any>;
   displayedColumns: string[] = [
     'dateTime', 
@@ -24,6 +27,10 @@ export class MovieDetailsComponent implements OnInit {
     'price', 
     'actions'
   ];
+
+  // fake korisnik
+  currentUserId = 1;
+  currentUserName = 'John Doe';
   
   constructor(private route: ActivatedRoute, 
               private movieService: MovieService, 
@@ -33,7 +40,32 @@ export class MovieDetailsComponent implements OnInit {
     const id = Number(this.route.snapshot.paramMap.get('id'));  //* Hvatamo vrednost id filma iz URL-a
     this.movie = this.movieService.getMovieById(id)!;
     this.initializeDataSource();
+    
+    this.selectedProjection = {
+      ...this.selectedProjection,
+      status: 'watched'
+    };
+    
+
+    
+    if (this.movie.projections && this.movie.projections.length > 0) {
+      this.selectedProjection = this.movie.projections[0];
+    //   console.log('[DEBUG] Selected projection:', this.selectedProjection);
+    // } else {
+    //   console.warn('[DEBUG] No projections found for movie.');
+    }
   }
+
+  // getProjectionStatus(projection: any): string {
+  //   // Provera da li korisnik ima rezervaciju za ovu projekciju
+  //   const cartItems = this.cartService.getCartItems();
+  //   const userReservation = cartItems.find(item => 
+  //     item.projectionId === projection.id &&
+  //     item.userId === this.currentUserId
+  //   );
+
+  //   return userReservation?.status || 'available';
+  // }
 
   private initializeDataSource(){
     this.dataSource = new MatTableDataSource(

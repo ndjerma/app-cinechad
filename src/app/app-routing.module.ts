@@ -7,6 +7,7 @@ import { MovieListComponent } from './components/movies/movie-list/movie-list.co
 import { MovieDetailsComponent } from './components/movies/movie-details/movie-details.component';
 import { CartComponent } from './components/cart/cart.component';
 import { AuthGuard } from './components/auth/authguard';
+import { ReviewComponent } from './components/review/review.component';
 
 const routes: Routes = [
   { path: '', component: WelcomeComponent },
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'movies', component: MovieListComponent },
   { path: 'movies/:id', component: MovieDetailsComponent, canActivate:[AuthGuard] },
-  { path: 'cart', component: CartComponent, canActivate:[AuthGuard] } 
+  { path: 'cart', component: CartComponent, canActivate:[AuthGuard] },
+  { path: 'reviews', component: ReviewComponent, canActivate:[AuthGuard] } 
 ];
 
 @NgModule({

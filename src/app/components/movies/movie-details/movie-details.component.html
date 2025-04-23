@@ -61,8 +61,22 @@
         </button>
         </td>
     </ng-container>
-
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
+
+    <!-- ? Review Section -->
+    <app-review
+        [movieId]="movie.id"
+        [projectionId]="selectedProjection.id"  
+        [userId]="currentUserId"
+        [userName]="currentUserName" 
+        [status]="selectedProjection.status">
+        
+        <p style="color: red;">[DEBUG] Review component loaded</p>
+
+    </app-review>
+
+
+    
 </div>
