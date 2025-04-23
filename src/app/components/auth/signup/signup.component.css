@@ -155,3 +155,38 @@ mat-chip {
         padding: 1rem;
     }
 }
+
+/*  popravka za datepicker */
+
+
+/* ===== STILOVI ZA DATEPICKER PANEL ===== */
+.mat-datepicker-content,
+.mat-mdc-datepicker-content {
+    background-color: var(--primary-100) !important; /* #ffe0d6 ili šta ti odgovara */
+    color: var(--text-on-primary) !important; /* npr. #5E3A28 */
+    border-radius: 8px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+}
+
+.mat-calendar {
+    background-color: transparent !important; /* Osiguranje da pozadina bude vidljiva */
+}
+
+.mat-calendar-table,
+.mat-calendar-body-cell {
+    background-color: transparent !important;
+}
+
+.mat-calendar-body-cell-content {
+    color: var(--text-on-primary) !important;
+}
+
+.mat-calendar-body-today:not(.mat-calendar-body-selected) {
+    border-color: var(--primary-500) !important; /* Vidljiv border za današnji dan */
+}
+
+.mat-calendar-body-active,
+.mat-calendar-body-cell:hover .mat-calendar-body-cell-content {
+    background-color: var(--primary-200) !important; /* Hover efekat */
+    color: white !important;
+}

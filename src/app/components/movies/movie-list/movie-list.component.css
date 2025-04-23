@@ -60,7 +60,7 @@ mat-form-field {
 /* Стилови за инпут и селект */
 .mat-mdc-text-field-wrapper,
 .mat-mdc-select-panel {
-    background-color: transparent !important;
+    background-color: black !important;
 }
 
 .mat-mdc-form-field-infix {
@@ -95,3 +95,61 @@ mat-form-field {
 .mat-mdc-form-field.mat-focused .mat-mdc-form-field-infix {
     box-shadow: 0 0 8px rgba(253, 157, 122, 0.3);
 }
+
+
+/* ===== STILOVI ZA DROPDOWN (MAT-SELECT) ===== */
+.mat-mdc-select-panel {
+    background-color: var(--primary-100) !important; /* #ffe0d6 */
+    border-radius: 8px !important;
+    margin-top: 8px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+    border: 1px solid var(--primary-500) !important;
+}
+
+.mat-mdc-option {
+    color: var(--text-on-primary) !important;
+    /* color: black !important; */
+    padding: 8px 16px !important;
+}
+
+.mat-mdc-option:hover:not(.mdc-list-item--disabled),
+.mat-mdc-option:focus:not(.mdc-list-item--disabled),
+.mat-mdc-option.mat-mdc-option-active {
+    background-color: var(--primary-200) !important; 
+
+}
+
+/* .mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled) {
+    /* background-color: var(--primary-200) !important;  */
+    
+    /* #FD9D7A */
+    /* color: white !important; */
+/* } */ 
+
+
+
+/* Pravilna boja pozadine za dropdown panel */
+::ng-deep .mat-mdc-select-panel {
+    background-color: var(--primary-100) !important; /* tvoja svetla boja */
+    color: var(--text-on-primary) !important;
+    border-radius: 8px;
+    border: 1px solid var(--primary-500);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Stilizuj opcije unutar dropdowna */
+  ::ng-deep .mat-mdc-option {
+    background-color: transparent !important;
+    color: var(--text-on-primary) !important;
+    font-size: 14px;
+  }
+  
+  /* Hover/focus/selected */
+  ::ng-deep .mat-mdc-option:hover:not(.mdc-list-item--disabled),
+  ::ng-deep .mat-mdc-option:focus:not(.mdc-list-item--disabled),
+  ::ng-deep .mat-mdc-option.mat-mdc-option-active {
+    background-color: var(--primary-200) !important;
+    color: var(--text-on-primary) !important;
+  }
+  
+
