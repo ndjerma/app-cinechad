@@ -14,7 +14,7 @@ export class ReviewService {
             userId: 1,
             projectionId: 1,        // ? Pripada filmu Inception (id=1)
             rating: 9,
-            comment: 'Odličan film! Preporučujem svima.',
+            comment: 'Odličan film! Preporučujem svima. 😁🍿',
             date: new Date('2024-04-10'),
             userName: 'djermaaa@gmail.com'
           },
@@ -32,7 +32,7 @@ export class ReviewService {
             userId: 3,
             projectionId: 7,    // ? Pripada filmu Dark Knight (id=2)
             rating: 10,
-            comment: 'Savršeno iskustvo u bioskopu!',
+            comment: 'Savršeno iskustvo u bioskopu!📽',
             date: new Date('2024-04-14'),
             userName: 'mims@gmail.com'
           }

@@ -1,66 +1,180 @@
-<section>
+<section class="signup-container">
+    <h1>Create Your Account</h1>
+    <p class="subtitle">Fill in all required details to start your cinematic journey</p>
+    
     <form
         fxLayout="column"
-        fxLayoutGap="1rem"
-        fxLayoutAlign="center center"
-        #n="ngForm"
-        (ngSubmit)="onSubmit(n)"
+        fxLayoutGap="1.5rem"
+        fxLayoutAlign="center stretch"
+        #signupForm="ngForm"
+        (ngSubmit)="onSubmit(signupForm)"
+        class="signup-form"
     >
-        <!-- * Email -->
-        <mat-form-field>
-            <mat-icon matPrefix>person</mat-icon>
-            <input 
-            ngModel
-            matInput
-            type="email"
-            name="email" 
-            placeholder="Enter your email"
-            required
-            #emailInput="ngModel"
-            >
-            <mat-error *ngIf="emailInput.hasError('required')">Field should not be empty</mat-error>
-        </mat-form-field>
+        <!-- Personal Info Section -->
+        <div class="form-section">
+            <h2>Personal Information</h2>
+            <div fxLayout="row" fxLayoutGap="1rem">
+                <mat-form-field fxFlex>
+                    <mat-label>First Name</mat-label>
+                    <input 
+                        matInput
+                        ngModel
+                        name="name"
+                        required
+                        #firstName="ngModel"
+                    >
+                    <mat-error *ngIf="firstName.invalid">Required field</mat-error>
+                </mat-form-field>
 
-        <!-- * Password -->
-        <mat-form-field>
-            <mat-icon matPrefix>key</mat-icon>
-            <input
-                matInput
-                ngModel
-                type="password"
-                name="password"
-                placeholder="Enter your password"
-                minlength="8"
-                required
-                #passInput="ngModel"
+                <mat-form-field fxFlex>
+                    <mat-label>Last Name</mat-label>
+                    <input 
+                        matInput
+                        ngModel
+                        name="surname"
+                        required
+                        #lastName="ngModel"
+                    >
+                    <mat-error *ngIf="lastName.invalid">Required field</mat-error>
+                </mat-form-field>
+            </div>
+
+            <mat-form-field>
+                <mat-label>Date of Birth</mat-label>
+                <input matInput 
+                    [matDatepicker]="picker"
+                    ngModel
+                    name="birthDate"
+                    required
+                    #birthDate="ngModel"
                 >
-            <mat-hint align="end"> {{ passInput.value?.length }} / 8</mat-hint>
-        </mat-form-field>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error *ngIf="birthDate.invalid">Required field</mat-error>
+            </mat-form-field>
+        </div>
 
-        <!-- * DatePicker -->
-        <mat-form-field>
-            <mat-icon matPrefix>calendar_today</mat-icon>
-            <input matInput placeholder="Your date of birth"
-            [matDatepicker]="picker" ngModel name="birthDate" required>
-            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
+        <!-- Contact Info Section -->
+        <div class="form-section">
+            <h2>Contact Information</h2>
+            <div>
+                <mat-form-field>
+                    <mat-label>Email</mat-label>
+                    <input 
+                        matInput
+                        type="email"
+                        ngModel
+                        name="email"
+                        required
+                        #email="ngModel"
+                    >
+                    <mat-error *ngIf="email.invalid">Valid email required</mat-error>
+                </mat-form-field>
+    
+                <mat-form-field>
+                    <mat-label>Phone Number</mat-label>
+                    <input 
+                        matInput
+                        type="tel"
+                        ngModel
+                        name="phoneNumber"
+                        required
+                        pattern="[0-9]{10}"
+                        #phone="ngModel"
+                    >
+                    <mat-error *ngIf="phone.invalid">10-digit number required</mat-error>
+                </mat-form-field>
+    
+                <mat-form-field>
+                    <mat-label>Address</mat-label>
+                    <textarea
+                        matInput
+                        ngModel
+                        name="address"
+                        required
+                        #address="ngModel"
+                        rows="2"
+                    ></textarea>
+                    <mat-error *ngIf="address.invalid">Required field</mat-error>
+                </mat-form-field>
+            </div> 
+        </div>
 
-        <!-- * Checkbox -->
-        <mat-checkbox ngModel name="acceptance" required>
-            I accept the terms and conditions of use.
+        <!-- Favorite Genres Section -->
+        <div class="form-section">
+            <h2>Favorite Movie Genres</h2>
+            <mat-selection-list ngModel name="favGenre" required #genres="ngModel">
+                <mat-list-option *ngFor="let genre of allGenres" [value]="genre">
+                    {{ genre }}
+                </mat-list-option>
+            </mat-selection-list>
+            <br>
+            <mat-error *ngIf="genres.invalid" class="list-error">Select at least one genre</mat-error>
+        </div>
+
+        <!-- Account Security Section -->
+        <div class="form-section">
+            <h2>Account Security</h2>
+            <mat-form-field>
+                <mat-label>Password</mat-label>
+                <input
+                    matInput
+                    type="password"
+                    ngModel
+                    name="password"
+                    required
+                    minlength="8"
+                    #password="ngModel"
+                >
+                <mat-hint align="end">{{ password.value?.length || 0 }}/8 characters</mat-hint>
+                <mat-error *ngIf="password.invalid">
+                    Password must be at least 8 characters
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Confirm Password</mat-label>
+                <input
+                    matInput
+                    type="password"
+                    ngModel
+                    name="confirmPassword"
+                    required
+                    #confirmPassword="ngModel"
+                >
+                <mat-error *ngIf="confirmPassword.invalid || 
+                                (signupForm.value.password !== signupForm.value.confirmPassword && 
+                                 confirmPassword.touched)">
+                    Passwords must match
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <!-- Terms and Submit -->
+        <mat-checkbox ngModel name="terms" required #terms="ngModel">
+            I accept the <a href="#" class="terms-link">Terms and Conditions</a>
         </mat-checkbox>
+        <mat-error *ngIf="terms.invalid && terms.touched" class="terms-error">
+            You must accept the terms
+        </mat-error>
 
-        <!-- * Submit button -->
-        <button type="submit" mat-stroked-button [disabled]="n.invalid">Submit</button>
+        <button 
+            mat-raised-button 
+            color="primary" 
+            type="submit"
+            [disabled]="signupForm.invalid"
+            class="submit-button"
+        >
+            Create Account
+        </button>
 
-        <!-- * Error message field -->
-        <mat-label *ngIf="errorExists"> {{ errorText }}</mat-label>
-        <a routerLink="/login">Click here to sign in. 😄</a>
+        <div class="login-redirect">
+            Already have an account? <a routerLink="/login">Log in here</a>
+        </div>
 
-        
-
-        
-
+        <div *ngIf="errorMessage" class="error-message">
+            <mat-icon>error_outline</mat-icon>
+            {{ errorMessage }}
+        </div>
     </form>
 </section>

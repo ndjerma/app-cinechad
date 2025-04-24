@@ -197,7 +197,7 @@ export class MovieService{
             id: 5,
             title: "Goodfellas",
             imageUrl: "https://i.pinimg.com/736x/3b/c1/e2/3bc1e215b9875ad6470e43f2ddeb5e65.jpg",
-            description: 'The story of Henry Hill and his life in the mafia...',
+            description: 'The story of Henry Hill and his life in the mafia, covering his relationship with his wife Karen and his mob partners Jimmy Conway and Tommy DeVito.',
             genre: ['Comedy', 'Action'],
             duration: 145,
             director: 'Matrtin Scorsese',

@@ -12,7 +12,6 @@ import { User } from '../../../interfaces/user.interface';
 export class ProfileComponent implements OnInit {
 
   isEditing: boolean = false;
-
   profileForInput!: User;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, public authService: AuthService){}
@@ -22,7 +21,7 @@ export class ProfileComponent implements OnInit {
       id: this.data.user.id, 
       email: this.data.user.email,
       password: this.data.user.password,
-      date: this.data.date,
+      birthDate: this.data.user.birthDate,
       address: this.data.user.address,
       name: this.data.user.name,
       surname: this.data.user.surname,
@@ -38,6 +37,7 @@ export class ProfileComponent implements OnInit {
   finishEditing(){
     this.data.user.email = this.profileForInput.email;
     this.data.user.password = this.profileForInput.password;
+    this.data.user.birthDate = this.profileForInput.birthDate;
     this.data.user.address = this.profileForInput.address;
     this.data.user.name = this.profileForInput.name;
     this.data.user.surname = this.profileForInput.surname;
@@ -45,8 +45,8 @@ export class ProfileComponent implements OnInit {
     this.data.user.favGenre = this.profileForInput.favGenre;
 
 
-    console.log(this.data.user);
-    console.log(AuthService.dummyUserList);
+    // console.log(this.data.user);
+    // console.log(AuthService.dummyUserList);
     this.isEditing = false;
   }
 

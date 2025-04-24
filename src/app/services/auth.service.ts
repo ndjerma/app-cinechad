@@ -11,22 +11,21 @@ export class AuthService {
             id: 1,
             email: 'djermaaa@gmail.com',
             password: 'testtest',
-            date: new Date("2025-03-31 20:01")
+            birthDate: new Date("1999-03-01 15:00")
         },
         {
             id: 2,
             email: 'itsjohnny@gmail.com',
             password: 'testpass123',
-            date: new Date("2025-03-31 20:01")
+            birthDate: new Date("1999-03-01 15:00")
         },
         {
             id: 3,
             email: 'mims@gmail.com',
             password: 'testpass123',
-            date: new Date("2025-04-31 20:01")
+            birthDate: new Date("1999-07-28 20:00")
         }]
 
-        // currentUser: User  = AuthService.dummyUserList[0];
         currentUser: User | null = null;
         isLoggedIn = false;
 
@@ -75,7 +74,7 @@ export class AuthService {
             return foundUser || null;
         }
 
-        // * prikaz korisnika - getUser
+        // * prikaz korisnika putem mejla
         getUser(userEmail: string): User | undefined {
             const user = AuthService.dummyUserList.find(userToFind => userToFind.email == userEmail);
 
@@ -92,7 +91,17 @@ export class AuthService {
         }
 
         //* registruj korisnika
-        registerUser(email: string, password: string, date: Date): User {
+        registerUser(
+            email: string,
+            password: string,
+            birthDate: Date,
+            name: string,
+            surname: string,
+            phoneNumber: string,
+            address: string,
+            favGenre: string[],
+        ): User {
+
             var maxId: number = 0;
             AuthService.dummyUserList.forEach(user =>
                 {
@@ -102,9 +111,11 @@ export class AuthService {
                 });
 
             var id = ++maxId;
-            var user: User = {id, email, password, date};
+            var user: User = {id, email, password, birthDate, name, surname, phoneNumber, address, favGenre};
 
             AuthService.dummyUserList.push(user);
+            
+            localStorage.setItem('currentUser', JSON.stringify(AuthService.dummyUserList));
 
             this.currentUser = user;
 

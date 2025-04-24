@@ -1,192 +1,123 @@
-mat-form-field{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 50vw;
-}
-
 /* signup.component.css */
-section {
-    min-height: 100vh;
-    background: var(--primary-50);
+
+.signup-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.signup-container h1 {
+    color: var(--primary-700);
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    text-align: center;
+    color: var(--text-on-primary);
+    margin-bottom: 2rem;
+}
+
+.signup-form {
+    padding: 1rem;
+}
+
+.form-section {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background-color: var(--primary-50);
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-200);
+}
+.form-section div {
     display: flex;
-    justify-content: center;
+}
+
+.form-section h2 {
+    color: var(--primary-700);
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    display: flex;
     align-items: center;
 }
 
-form {
-    background: white;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
-    margin: 1rem;
+mat-selection-list {
+    max-height: 200px;
+    overflow-y: auto;
+    padding: 0;
 }
 
-mat-form-field {
-    width: 100%;
-    margin-bottom: 1.5rem;
+mat-list-option {
+    border-bottom: 1px solid #eee;
 }
 
-mat-icon {
-    margin-right: 8px;
-    color: #FD9D7A;
-    margin-right: 8px;
-}
-
-.mat-form-field-underline,
-.mat-form-field-ripple {
-    background-color: #FEBDA0 !important;
-}
-
-.mat-focused .mat-form-field-label {
-    color: #FEBDA0 !important;
-}
-
-mat-datepicker-toggle {
-    color: #FEBDA0 !important;
-}
-
-mat-checkbox {
-    margin: 1rem 0;
+.list-error {
+    margin-top: -1rem;
+    margin-bottom: 1rem;
     display: block;
 }
 
-mat-checkbox .mat-checkbox-background {
-    border-color: #FEBDA0 !important;   
-}
-
-.mat-checkbox-checked .mat-checkbox-background {
-    background-color: #FEBDA0 !important;
-}
-
-button[mat-stroked-button] {
-    width: 100%;
-    padding: 12px;
-    font-weight: 500;
-    background: var(--primary-200);
-    color: white !important;
-    border: none;
-    transition: all 0.3s ease;
-}
-
-button[mat-stroked-button]:hover {
-    background: var(--primary-700);
-    transform: translateY(-1px);
-}
-
-button[mat-stroked-button]:disabled {
-    background: #eeeeee;
-    color: #999 !important;
-}
-
-a {
-    color: var(--primary-700);
+.terms-link {
+    color: var(--primary-500);
     text-decoration: none;
-    font-size: 0.9rem;
-    margin-top: 1rem;
-    display: block;
-    text-align: center;
 }
 
-a:hover {
-    color: var(--primary-200);
+.terms-link:hover {
     text-decoration: underline;
 }
 
-mat-label.errorMessage {
+.terms-error {
+    margin-top: -1rem;
+    margin-bottom: 1rem;
+}
+
+.submit-button {
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+}
+
+.login-redirect {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: var(--text-on-primary);
+}
+
+.login-redirect a {
+    color: var(--primary-500);
+    text-decoration: none;
+}
+
+.login-redirect a:hover {
+    text-decoration: underline;
+}
+
+.error-message {
     color: #d32f2f;
-    margin: 1rem 0;
-    font-size: 0.9rem;
+    background-color: #fde8e8;
+    padding: 12px;
+    border-radius: 4px;
+    margin-top: 1rem;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 8px;
 }
 
-/* Date picker customizacija */
-.mat-datepicker-content {
-    box-shadow: 0 4px 6px rgba(254, 189, 160, 0.2) !important;
-    border-radius: 8px !important;
-}
-
-.mat-calendar-body-selected {
-    background-color: #FEBDA0 !important;
-    color: white !important;
-}
-
-
-/* =========== IKONICE =========== */
-
-mat-icon[matPrefix] {
-    margin-right: 8px;
-    color: #FD9D7A;
-    transform: translateY(-2px);
-}
-
-mat-datepicker-toggle[matIconSuffix] {
-    color: #FD9D7A !important;
-}
-
-.mat-form-field-prefix,
-.mat-form-field-suffix {
-    display: flex;
-    align-items: center;
-}
-
-
-mat-chip {
-    min-width: 100px;
-    justify-content: center;
-  }
-  
-  mat-chip.mat-primary { background-color: #FEBDA0; color: #5E3A28; }
-  mat-chip.mat-accent { background-color: #A0FEBD; color: #2C5E3A; }
-  mat-chip.mat-warn { background-color: #FEa0A0; color: #5E2C2C; }
-
-/* Responsive */
-@media (max-width: 480px) {
-    form {
-        padding: 1.5rem;
-        margin: 0.5rem;
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .signup-container {
+        padding: 1rem;
+        margin: 1rem;
     }
-
-    section {
+    
+    .form-section {
         padding: 1rem;
     }
-}
-
-/*  popravka za datepicker */
-
-
-/* ===== STILOVI ZA DATEPICKER PANEL ===== */
-.mat-datepicker-content,
-.mat-mdc-datepicker-content {
-    background-color: var(--primary-100) !important; /* #ffe0d6 ili šta ti odgovara */
-    color: var(--text-on-primary) !important; /* npr. #5E3A28 */
-    border-radius: 8px !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
-}
-
-.mat-calendar {
-    background-color: transparent !important; /* Osiguranje da pozadina bude vidljiva */
-}
-
-.mat-calendar-table,
-.mat-calendar-body-cell {
-    background-color: transparent !important;
-}
-
-.mat-calendar-body-cell-content {
-    color: var(--text-on-primary) !important;
-}
-
-.mat-calendar-body-today:not(.mat-calendar-body-selected) {
-    border-color: var(--primary-500) !important; /* Vidljiv border za današnji dan */
-}
-
-.mat-calendar-body-active,
-.mat-calendar-body-cell:hover .mat-calendar-body-cell-content {
-    background-color: var(--primary-200) !important; /* Hover efekat */
-    color: white !important;
+    
+    .submit-button {
+        width: 100%;
+    }
 }
