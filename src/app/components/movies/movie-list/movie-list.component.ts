@@ -28,12 +28,31 @@ export class MovieListComponent implements OnInit {
     this.filteredMovies = this.movieService.getAllMovies();
   }
 
-  searchMoviesByTerm(searchTerm: string){
-    return this.filteredMovies  = this.allMovies.filter(movie => {
-      const titleMatch = movie.title.toLowerCase().includes(searchTerm.toLowerCase());
-      return titleMatch;
-    })
+  // searchMoviesByTerm(searchTerm: string){
+  //   return this.filteredMovies  = this.allMovies.filter(movie => {
+  //     const titleMatch = movie.title.toLowerCase().includes(searchTerm.toLowerCase());
+  //     return titleMatch;
+  //   })
+  // }
+
+  searchMoviesByTerm(searchTerm: string) {
+    console.log('searching for: ', searchTerm);
+    searchTerm = searchTerm.toLowerCase();
+
+    return this.filteredMovies = this.allMovies.filter(movie => {
+      return (
+        movie.title.toLowerCase().includes(searchTerm) ||
+        movie.description.toLowerCase().includes(searchTerm) ||
+        movie.duration.toString().includes(searchTerm) ||
+        movie.director.toLowerCase().includes(searchTerm) ||
+        movie.cast.some(castMember =>
+          castMember.toLowerCase().includes(searchTerm)
+        ) ||
+        movie.releaseDate.getFullYear().toString().includes(searchTerm)
+      );
+    });
   }
+
 
   searchMoviesByGenre(selectedGenre: string){
     return this.filteredMovies = this.allMovies.filter(movie => {
